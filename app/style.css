@@ -1,0 +1,59 @@
+body {
+    height: 100vh;
+    position: relative;
+    margin: 0;
+}
+
+header {
+    background: url("https://source.unsplash.com/1290x900?city-night" );
+    height :30%;
+    background-size: cover;
+    width: 100vw;
+    background-repeat: no-repeat;
+    position: relative;
+    color: aliceblue;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+header::after {
+    content: "Bonjour !";
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header > * {
+    
+}
+main {
+    min-width: 100vw;
+    height: calc(100% - 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #242424;
+}
+
+button {
+    background-color: #28761e;
+    padding: 1rem .5rem;
+    min-width: 15rem;
+    border-radius: 2rem;
+    font-size: 1.3rem;
+    border: none;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+button:hover {
+    transform: translateY(-5px);
+    transition: all .2s ease;
+-webkit-box-shadow:0px 0px 38px 0px rgba(40,118,30,0.58);
+-moz-box-shadow: 0px 0px 38px 0px rgba(40,118,30,0.58);
+box-shadow: 0px 0px 38px 0px rgba(40,118,30,0.58);
+}

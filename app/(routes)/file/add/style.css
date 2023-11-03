@@ -1,0 +1,71 @@
+@-webkit-keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.file-main-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    min-height: 100vh;
+    background-color: transparent;
+    -webkit-animation: 0.2s ease 0s appear both;
+    animation: 0.2s ease 0s appear both;
+    opacity: 0;
+}
+
+.add-file-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto;
+    /* border: 1px solid blue; */
+    border-radius: 3rem;
+    padding: 3rem;
+    width: min(50rem, 100vw);
+    background-color: rgba(0 0 0 / 0.77);
+}
+input,
+textarea {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    text-transform: capitalize;
+    width: min(40rem, 100%);
+}
+.label-folder {
+    align-items: center;
+}
+.button {
+    margin-top: 3rem;
+}

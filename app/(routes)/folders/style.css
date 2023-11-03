@@ -1,0 +1,41 @@
+.folders-main-wrapper {
+    border-bottom: 2px solid black;
+    min-width: 80%;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.folder {
+    background-color: #5a5959;
+    padding: .5rem;
+    border-radius: .3rem;
+    transition: all .3s ease;
+    cursor: pointer;
+    color: aliceblue;
+    min-width: 10rem;
+    min-height: 2.5rem;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    gap: .5rem;
+    align-items: center;
+    position: relative;
+    font-size: 1.225rem;
+    text-transform: initial;
+}
+.folder > i {
+    /* position: absolute;
+    top: .5rem;
+    left: .5rem; */
+    font-size: 2rem;
+}
+.folder:hover {
+    transform: translateY(-3px);
+    transition: all .3s ease;
+}

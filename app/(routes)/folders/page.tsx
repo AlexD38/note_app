@@ -1,6 +1,8 @@
 import Link from "next/link";
 import client from "../../../database";
 import "./style.css";
+import AddFolderBtn from "@/components/add-folder-button/page";
+import AddFolder from "./add/page";
 
 export async function GetAllFolders() {
     try {
@@ -32,6 +34,10 @@ export default async function folders() {
                         </article>
                     </Link>
                 ))}
+
+            <AddFolderBtn>
+                <AddFolder />
+            </AddFolderBtn>
         </section>
     );
 }

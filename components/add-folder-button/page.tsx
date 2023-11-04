@@ -1,18 +1,20 @@
 "use client";
 import { useState } from "react";
-import "./style.css";
+import "../../app/(routes)/folders/style.css";
 
-export default function AddNoteBtn({ children }: { children: React.ReactNode }) {
+export default function AddFolderBtn({ children }: { children: React.ReactNode }) {
     const [form, setForm] = useState(false);
     const handleClick = async () => {
         form ? setForm(false) : setForm(true);
     };
+    const closeModal = async () => {
+        setForm(false);
+    };
     return (
         <>
-            <button onClick={handleClick}>
-                Add New Note <i className="fa-solid fa-plus"></i>
-            </button>
-
+            <article onClick={handleClick} className="folder folder-add">
+                <i className="fa-solid fa-plus"></i>
+            </article>{" "}
             {form && (
                 <>
                     {children}{" "}

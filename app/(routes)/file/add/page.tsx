@@ -42,11 +42,11 @@ export default async function AddFile() {
                 </label>
                 <label className="label" htmlFor="inputDesc">
                     slug :
-                    <textarea required className="textarea" name="slug" />
+                    <input required className="textarea" name="slug" />
                 </label>
                 <label className="label" htmlFor="inputDesc">
                     body :
-                    <input required type="text" className="input" name="body" />
+                    <textarea required className="input" name="body" />
                 </label>
                 <label className="label label-folder" htmlFor="inputDesc">
                     folder :

@@ -15,14 +15,7 @@ export default function AddFolderBtn({ children }: { children: React.ReactNode }
             <article onClick={handleClick} className="folder folder-add">
                 <i className="fa-solid fa-plus"></i>
             </article>{" "}
-            {form && (
-                <>
-                    {children}{" "}
-                    <button className="close-btn" onClick={handleClick}>
-                        Close
-                    </button>
-                </>
-            )}
+            {form && <>{children} </>}
         </>
     );
 }

@@ -1,7 +1,9 @@
 import Folders from "./(routes)/folders/page";
 import "./style.css";
 import AddFile from "./(routes)/file/add/page";
-import AddNoteBtn from "@/components/add-note-button/page";
+import AddNoteBtn from "@/components/add-note-modal/page";
+import * as React from "react";
+import Link from "next/link";
 
 export default function Home() {
     const today = new Date();

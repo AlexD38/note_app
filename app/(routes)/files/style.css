@@ -1,0 +1,19 @@
+.file {
+    width: 100%;
+    color: aliceblue;
+    /* background-color: grey; */
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+}
+
+.files-main-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    width: min(80rem, 100%);
+    /* border: 1px solid green; */
+}

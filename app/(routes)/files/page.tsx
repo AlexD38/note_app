@@ -1,11 +1,11 @@
 import Link from "next/link";
 import client from "../../../database";
-// import "./style.css";
+import "./style.css";
 
 export async function GetAllFiles() {
     try {
         const sqlQuery = {
-            text: `SELECT * FROM files ;`,
+            text: `SELECT * FROM files LIMIT 3 ;`,
         };
         const response = await client.query(sqlQuery);
 
@@ -22,13 +22,12 @@ export async function GetAllFiles() {
 export default async function Files() {
     const files = await GetAllFiles();
     return (
-        <section className="folders-main-wrapper">
+        <section className="files-main-wrapper">
             {files &&
                 files.map((file: { title: string; id: number }) => (
                     <Link target="_blank" href={`/folders/${file.id}`}>
-                        <article className="folder" draggable={false}>
-                            <i className="fa-solid fa-folder"></i>
-                            {file.title}
+                        <article className="file" draggable={false}>
+                            <i className="fa-solid fa-file"></i> {file.title}
                         </article>
                     </Link>
                 ))}

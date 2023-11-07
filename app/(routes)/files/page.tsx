@@ -1,12 +1,11 @@
 import Link from "next/link";
 import client from "../../../database";
-import "./style.css";
-import AddFolderBtn from "@/components/add-folder-modal/page";
+// import "./style.css";
 
-export async function GetAllFolders() {
+export async function GetAllFiles() {
     try {
         const sqlQuery = {
-            text: `SELECT * FROM folders;`,
+            text: `SELECT * FROM files ;`,
         };
         const response = await client.query(sqlQuery);
 
@@ -20,21 +19,19 @@ export async function GetAllFolders() {
     }
 }
 
-export default async function folders() {
-    const folders = await GetAllFolders();
+export default async function Files() {
+    const files = await GetAllFiles();
     return (
         <section className="folders-main-wrapper">
-            {folders &&
-                folders.map((folder: { name: string; id: number }) => (
-                    <Link target="_blank" href={`/folders/${folder.id}`}>
+            {files &&
+                files.map((file: { title: string; id: number }) => (
+                    <Link target="_blank" href={`/folders/${file.id}`}>
                         <article className="folder" draggable={false}>
                             <i className="fa-solid fa-folder"></i>
-                            {folder.name}
+                            {file.title}
                         </article>
                     </Link>
                 ))}
-
-            <AddFolderBtn />
         </section>
     );
 }

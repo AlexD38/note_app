@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import "../../app/(routes)/folders/style.css";
 import AddFolder from "@/app/(routes)/folders/add/page";
 import "../add-note-modal/style.css";
+import "./style.css";
 
 export default function AddFolderBtn() {
     const [form, setForm] = useState(false);
@@ -11,7 +12,6 @@ export default function AddFolderBtn() {
     const handleClick = async () => {
         form ? setForm(false) : setForm(true);
         console.log();
-        await AddFolder(folderNameRef.current.value);
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,10 +31,10 @@ export default function AddFolderBtn() {
                     <fieldset>
                         <input type="text" placeholder="folder name" required ref={folderNameRef} />
                     </fieldset>
-                    <button type="submit">Envoyer</button>
-                    <button onClick={handleClick} type="submit">
-                        Annuler
-                    </button>
+                    <div className="btn-container">
+                        <button type="submit">Envoyer</button>
+                        <button onClick={handleClick}>Annuler</button>
+                    </div>
                 </form>
             )}
         </>

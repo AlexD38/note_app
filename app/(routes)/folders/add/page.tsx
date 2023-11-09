@@ -2,6 +2,8 @@
 import { redirect } from "next/navigation";
 import client from "../../../../database";
 import "../../../style.css";
+import "./style.css";
+import { revalidateTag } from "next/cache";
 
 export default async function AddFolder(folderName: string) {
     console.log(folderName);
@@ -19,5 +21,5 @@ export default async function AddFolder(folderName: string) {
     } catch (error) {
         console.log(error);
     }
-    redirect(`/`);
+    revalidateTag("folders");
 }

@@ -5,7 +5,7 @@ import "./style.css";
 export async function GetAllFiles() {
     try {
         const sqlQuery = {
-            text: `SELECT * FROM files LIMIT 3 ;`,
+            text: `SELECT * FROM files ORDER BY updated_at DESC LIMIT 3;`,
         };
         const response = await client.query(sqlQuery);
 

@@ -2,6 +2,7 @@
 import { redirect } from "next/navigation";
 import client from "../../../../database";
 import "../../../style.css";
+import { revalidatePath } from "next/cache";
 
 export default async function AddFile(fileName: string, fileSlug: string, fileBody: string, folder: number) {
     try {
@@ -17,5 +18,5 @@ export default async function AddFile(fileName: string, fileSlug: string, fileBo
     } catch (error) {
         console.log(error);
     }
-    redirect(`/`);
+    revalidatePath("files");
 }

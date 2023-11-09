@@ -1,9 +1,10 @@
-import Folders from "./(routes)/folders/page";
+// import Folders from "./(routes)/folders/page";
 import "./style.css";
 import AddNoteBtn from "@/components/add-note-modal/page";
 import * as React from "react";
 import Link from "next/link";
 import Files from "./(routes)/files/page";
+import Folders from "./(routes)/folders/page";
 
 export default function Home() {
     const today = new Date();
@@ -17,7 +18,8 @@ export default function Home() {
             <header>{currentDate}</header>
             <main>
                 <Folders />
-                <AddNoteBtn></AddNoteBtn>
+                <AddNoteBtn />
+
                 <Files />
             </main>
         </body>

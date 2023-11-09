@@ -4,11 +4,11 @@ import client from "../../../../database";
 import "../../../style.css";
 import { revalidatePath } from "next/cache";
 
-export default async function AddFile(fileName: string, fileSlug: string, fileBody: string, folder: number) {
+export default async function AddFile(fileName: string, fileSlug: string, fileBody: string) {
     try {
         const sqlQuery = {
-            text: `INSERT INTO files (title, slug, body, folder_id) VALUES ($1, $2, $3, $4) RETURNING *;`,
-            values: [fileName, fileSlug, fileBody, folder],
+            text: `INSERT INTO files (title, slug, body) VALUES ($1, $2, $3) RETURNING *;`,
+            values: [fileName, fileSlug, fileBody],
         };
         const response = await client.query(sqlQuery);
         if (!response) {

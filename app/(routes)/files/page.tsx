@@ -5,7 +5,7 @@ import "./style.css";
 export async function GetAllFiles() {
     try {
         const sqlQuery = {
-            text: `SELECT * FROM files ORDER BY updated_at DESC LIMIT 3;`,
+            text: `SELECT * FROM files  WHERE folder_id IS null ORDER BY updated_at DESC;`,
         };
         const response = await client.query(sqlQuery);
 
@@ -23,6 +23,7 @@ export default async function Files() {
     const files = await GetAllFiles();
     return (
         <section className="files-main-wrapper">
+            <h1>A trier : </h1>
             {files &&
                 files.map((file: { title: string; id: number }) => (
                     <Link target="_blank" href={`/folders/${file.id}`}>

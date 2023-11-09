@@ -20,7 +20,7 @@ export async function GetAllFolders() {
     }
 }
 
-export default async function folders() {
+export default async function Folders() {
     const folders = await GetAllFolders();
     return (
         <section className="folders-main-wrapper">

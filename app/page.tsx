@@ -19,7 +19,6 @@ export default function Home() {
             <main>
                 <Folders />
                 <AddNoteBtn />
-
                 <Files />
             </main>
         </body>

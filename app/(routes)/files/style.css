@@ -8,6 +8,10 @@
     width: 50rem;
     text-align: center;
     transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 .file:hover {
     transition: all 0.3s ease;

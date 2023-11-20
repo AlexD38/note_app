@@ -6,7 +6,7 @@ import AddFolderBtn from "@/components/add-folder-modal/page";
 export async function GetAllFolders() {
     try {
         const sqlQuery = {
-            text: `SELECT * FROM folders;`,
+            text: `SELECT * FROM folders ;`,
         };
         const response = await client.query(sqlQuery);
 

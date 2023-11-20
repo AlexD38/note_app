@@ -1,0 +1,36 @@
+aside {
+    /* border : 1px solid red; */
+    background-color: rgba(240, 248, 255, 0.125);
+    color : aliceblue;
+    position: absolute;
+    right: -9rem;
+    top: 30%;
+    height: 70%;
+    padding: 2rem;
+    transition: all .3s ease-in;
+    overflow-y: scroll;
+}
+aside:hover {
+    right: 0;
+    transition: all .3s ease-in-out;
+}
+aside ul li, ul {
+    list-style-type: none;
+    margin : 0; 
+    padding: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: .3rem;
+}
+.folder-list:hover {
+    background-color: rgba(240, 248, 255, 0.257);
+}
+.file-list {
+    margin-left: .5rem ;
+    opacity: .5;
+    font-size: 1.125rem;
+}
+.file-list:hover {
+    background-color: rgba(240, 248, 255, 0.257);
+
+}

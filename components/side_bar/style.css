@@ -1,6 +1,8 @@
 aside {
-    /* border : 1px solid red; */
-    background-color: rgba(240, 248, 255, 0.125);
+    border-left : 5px double green;
+    background-color: rgba(0, 0, 0, 0.125);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
     color : aliceblue;
     position: absolute;
     right: -9rem;
@@ -9,6 +11,7 @@ aside {
     padding: 2rem;
     transition: all .3s ease-in;
     overflow-y: scroll;
+    width: 20rem;
 }
 aside:hover {
     right: 0;
@@ -22,15 +25,25 @@ aside ul li, ul {
     cursor: pointer;
     padding: .3rem;
 }
+.folder-list {
+
+    transition: all .3s ease-in-out;
+}
 .folder-list:hover {
+    transition: all .3s ease-in-out;
     background-color: rgba(240, 248, 255, 0.257);
 }
-.file-list {
+.file-list, .file-list-empty {
     margin-left: .5rem ;
     opacity: .5;
     font-size: 1.125rem;
+    font-style: italic;
 }
 .file-list:hover {
     background-color: rgba(240, 248, 255, 0.257);
 
+}
+a {
+    text-decoration: none;
+    color : aliceblue;
 }

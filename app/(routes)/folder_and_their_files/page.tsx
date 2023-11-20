@@ -2,10 +2,26 @@ import client from "../../../database";
 export default async function GetAllFoldersWithTheirFiles() {
     try {
         const sqlQuery = {
-            text: `SELECT folders.name AS folder_name, ARRAY_AGG(files.title) AS files_titles
-FROM files
-JOIN folders ON files.folder_id = folders.id
-GROUP BY folders.name;`,
+            text: `SELECT
+    folders.id AS folder_id,
+    folders.name AS folder_name,
+    COALESCE(
+        jsonb_agg(
+            jsonb_build_object(
+                'file_title', COALESCE(files.title, ''),
+                'file_id', files.id
+            )
+        ),
+        '{}'::jsonb
+    ) AS files_data
+FROM
+    folders
+LEFT JOIN
+    files ON files.folder_id = folders.id
+GROUP BY
+    folders.id, folders.name;
+
+`,
         };
         const response = await client.query(sqlQuery);
 

@@ -11,8 +11,11 @@ export default function EditFileBar(props: any) {
         console.log(props);
     };
     return (
-        <nav onClick={handleCLick}>
-            <p>Edit this file</p> {showNav && <DeleteBtn file={props.file} />}
-        </nav>
+        <>
+            <nav onClick={handleCLick}>
+                <p>Edit this file</p>
+            </nav>
+            {showNav && <DeleteBtn file={props.file} />}
+        </>
     );
 }

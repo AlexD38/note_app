@@ -32,3 +32,20 @@ html {
     width: min(70vw, 100%);
     margin: 0 auto;
 }
+.single-file-body  {
+    width: min(85rem, 95%);
+}
+.single-file-body h1 {
+    text-align: left;
+    border-bottom: 1px solid aliceblue;
+    padding-bottom: 1rem ;
+    margin-bottom: 2rem;
+    
+}
+.single-file-body p {
+    margin-left: 1rem;
+    font-family: monospace;
+    font-size: 1.3rem;
+    opacity: .8;
+    
+}

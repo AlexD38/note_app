@@ -1,0 +1,16 @@
+nav > :first-child {
+    cursor : pointer;
+    opacity: .8;
+    transition: all .3s ease;
+    border: 2px solid green;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 1rem;
+    background-color: green;
+}
+nav:hover > p {
+    transition: all .3s ease;
+    opacity: 1;
+    background-color: transparent;
+}

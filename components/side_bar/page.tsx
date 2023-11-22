@@ -15,7 +15,7 @@ export default function SideBar(props: any) {
         setFolderStates(false);
     };
 
-    // console.log(props);
+    console.log(props.folders[0].files_data[0]);
     const folders = props.folders;
 
     return (
@@ -29,7 +29,7 @@ export default function SideBar(props: any) {
                                 folderStates[folder.folder_name] &&
                                 folder.files_data.map((file: any, index: number) => (
                                     <ul key={index}>
-                                        {file ? (
+                                        {file.file_id ? (
                                             <Link target="_blank" href={`/file?id=${file.file_id}`}>
                                                 <li className="file-list">{file.file_title}</li>
                                             </Link>

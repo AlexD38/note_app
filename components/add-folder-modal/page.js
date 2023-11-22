@@ -15,7 +15,6 @@ export default function AddFolderBtn() {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log(folderNameRef.current.value);
         await AddFolder(folderNameRef.current.value);
         handleClick();
         alert("Your folder has been added");

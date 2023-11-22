@@ -1,3 +1,4 @@
+import { revalidatePath, revalidateTag } from "next/cache";
 import client from "../../../database";
 export default async function GetAllFoldersWithTheirFiles() {
     try {
@@ -28,6 +29,7 @@ GROUP BY
         if (!response) {
             throw new Error("Failed to fetch data");
         }
+        revalidateTag("files");
 
         return response.rows;
     } catch (error) {

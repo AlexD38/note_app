@@ -30,6 +30,7 @@ GROUP BY
             throw new Error("Failed to fetch data");
         }
         revalidateTag("files");
+        revalidateTag("folders");
 
         return response.rows;
     } catch (error) {

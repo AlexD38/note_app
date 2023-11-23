@@ -7,7 +7,7 @@ import EditFileBar from "@/components/Edit-file-bar/page";
 import { marked } from "marked";
 import he from "he";
 
-export default async function getOneFile(request) {
+export default async function getOneFile(request: any) {
     const fileId = request.searchParams.id;
     try {
         const sqlQuery = {
@@ -25,12 +25,17 @@ export default async function getOneFile(request) {
             throw new Error("Failed to fetch data");
         }
         return (
-            <main className="single-file-main-wrapper">
-                <EditFileBar file={fileId} />
-                <h1 className="single-file-title">file is : {file.title}</h1>
-                <h2 className="single-file-slug">{file.slug}</h2>
-                <p className="single-file-body" dangerouslySetInnerHTML={{ __html: decodedHTML }}></p>
-            </main>
+            <>
+                <head>
+                    <title>{file.title}</title>
+                </head>
+                <main className="single-file-main-wrapper">
+                    <EditFileBar file={fileId} />
+                    <h1 className="single-file-title">file is : {file.title}</h1>
+                    <h2 className="single-file-slug">{file.slug}</h2>
+                    <p className="single-file-body" dangerouslySetInnerHTML={{ __html: decodedHTML }}></p>
+                </main>
+            </>
         );
     } catch (error) {
         console.log(error);

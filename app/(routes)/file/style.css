@@ -39,13 +39,19 @@ html {
     text-align: left;
     border-bottom: 1px solid aliceblue;
     padding-bottom: 1rem ;
-    margin-bottom: 2rem;
-    
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
 }
 .single-file-body p {
     margin-left: 1rem;
     font-family: monospace;
     font-size: 1.3rem;
-    opacity: .8;
-    
+    color: rgba(240, 248, 255, 0.787);  
+}
+.single-file-body p strong {
+    color: aliceblue;
+    text-decoration: underline;
+}
+.single-file-body ul > li::first-letter, .single-file-body h1::first-letter {
+    text-transform: capitalize;
 }

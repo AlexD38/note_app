@@ -1,5 +1,5 @@
 aside {
-    border-left : 5px double green;
+    border-left : 5px double var(--primary-color);
     background-color: rgba(0, 0, 0, 0.125);
     -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);

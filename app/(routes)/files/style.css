@@ -4,7 +4,7 @@
     padding: 1rem;
     font-size: 1.5rem;
     border-radius: 1rem;
-    border: 1px solid green;
+    border: 1px solid var(--primary-color);
     width: 50rem;
     text-align: center;
     transition: all 0.3s ease;
@@ -26,7 +26,6 @@
     align-items: center;
     gap: 2rem;
     width: min(80rem, 100%);
-    /* border: 1px solid green; */
 }
 h1 {
     color: aliceblue;

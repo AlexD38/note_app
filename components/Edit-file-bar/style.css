@@ -2,15 +2,22 @@ nav > :first-child {
     cursor : pointer;
     opacity: .8;
     transition: all .3s ease;
-    border: 2px solid green;
+    border: 2px solid var(--primary-color);
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     padding: 1rem;
-    background-color: green;
+    background-color: var(--primary-color);
 }
 nav:hover > p {
     transition: all .3s ease;
     opacity: 1;
     background-color: transparent;
+}
+.edit-btns-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }

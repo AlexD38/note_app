@@ -26,11 +26,11 @@ export default async function getOneFile(request: any) {
         }
         return (
             <>
-                <head>
+                {/* <head>
                     <title>{file.title}</title>
-                </head>
+                </head> */}
                 <main className="single-file-main-wrapper">
-                    <EditFileBar file={fileId} />
+                    <EditFileBar file={fileId} wholeFile={file} />
                     <h1 className="single-file-title">file is : {file.title}</h1>
                     <h2 className="single-file-slug">{file.slug}</h2>
                     <p className="single-file-body" dangerouslySetInnerHTML={{ __html: decodedHTML }}></p>

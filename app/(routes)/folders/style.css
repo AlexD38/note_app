@@ -35,7 +35,7 @@
 .folder-add {
     justify-content: center;
     min-width: 3rem;
-    background-color: green;
+    background-color: var(--primary-color);
 }
 .folder-add:hover {
     transition: all 0.2s ease;

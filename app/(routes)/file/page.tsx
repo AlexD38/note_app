@@ -20,7 +20,7 @@ export default async function getOneFile(request: any) {
         const parsedHTML = marked.parse(file.body);
         const encodedHTML = he.encode(parsedHTML);
         const decodedHTML = he.decode(encodedHTML);
-        console.log(file);
+        // console.log(file);
         if (!file) {
             throw new Error("Failed to fetch data");
         }

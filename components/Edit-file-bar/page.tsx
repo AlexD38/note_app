@@ -14,7 +14,6 @@ export default function EditFileBar(props: any) {
     };
     const handleEditClick = () => {
         showEditModal ? setShowEditModal(false) : setShowEditModal(true);
-        console.log("modal to edit file");
     };
     const handleClose = () => {
         setShowEditModal(false);

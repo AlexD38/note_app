@@ -15,8 +15,8 @@ export default function SideBar(props: any) {
         setFolderStates(false);
     };
 
-    console.log(props.folders[0].files_data[0]);
     const folders = props.folders;
+    console.log(folders);
 
     return (
         <aside onMouseLeave={hideFolderFiles}>
@@ -25,6 +25,7 @@ export default function SideBar(props: any) {
                     folders.map((folder: { folder_name: string; files_data: any }) => (
                         <li key={folder.folder_name} className="folder-list" onClick={() => toggleFolder(folder.folder_name)}>
                             {folder.folder_name}
+                            {folder.files_data[0].file_id !== null && <span className="files-count-badge">{folder.files_data.length}</span>}
                             {folder.files_data &&
                                 folderStates[folder.folder_name] &&
                                 folder.files_data.map((file: any, index: number) => (

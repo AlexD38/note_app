@@ -18,9 +18,10 @@ html {
     text-align: center;
     text-transform: uppercase;
     border-bottom: 2px solid aliceblue;
-    padding: 1rem;
+    border-top: 2px solid aliceblue;
+    padding: 2rem;
     width: min(70vw, 100%);
-    margin: 0 auto;
+    margin: 3rem auto;
 }
 .single-file-slug {
     font-size: 1.5rem;

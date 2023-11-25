@@ -54,3 +54,11 @@ a {
     text-decoration: none;
     color : aliceblue;
 }
+.files-count-badge {
+    border-radius : 50%;
+    padding: .5rem 1rem;
+    background-color: green;
+    /* font-size: .8rem; */
+    color: aliceblue;
+    /* margin: .5rem; */
+}

@@ -14,7 +14,7 @@ export default async function AddFile(fileName: string, fileSlug: string, fileBo
         if (!response) {
             throw new Error("Failed to fetch data");
         }
-        console.log(response.rows);
+        // console.log(response.rows);
     } catch (error) {
         console.log(error);
     }

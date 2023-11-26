@@ -4,7 +4,7 @@ import { SortOneFile } from "@/app/(routes)/files/sort/page";
 import { useRef, useState } from "react";
 
 export default function ToSortFiles(props: any) {
-    console.log("props", props);
+    // console.log("props", props);
     const [showFolderChoice, setshowFolderChoice] = useState(false);
     const [selectedFolder, setSelectedFolder] = useState("");
     const folderRef = useRef(null);
@@ -18,7 +18,7 @@ export default function ToSortFiles(props: any) {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         const folderId = folderRef.current.value;
-        console.log("submitted");
+        // console.log("submitted");
         SortOneFile(folderId, props.file.id);
         setshowFolderChoice(false);
     };

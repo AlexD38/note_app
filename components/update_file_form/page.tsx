@@ -22,7 +22,7 @@ export default function UpdateFileForm(props: any) {
     };
     const handleClick = () => {
         props.onClose();
-        console.log(props);
+        // console.log(props);
     };
     return (
         <form className="add-file-form" onSubmit={handleSubmit}>

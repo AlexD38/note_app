@@ -16,7 +16,7 @@ export default function SideBar(props: any) {
     };
 
     const folders = props.folders;
-    console.log(folders);
+    // console.log(folders);
 
     return (
         <aside onMouseLeave={hideFolderFiles}>

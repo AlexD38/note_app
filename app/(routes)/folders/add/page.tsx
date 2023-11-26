@@ -6,7 +6,7 @@ import "./style.css";
 import { revalidateTag } from "next/cache";
 
 export default async function AddFolder(folderName: string) {
-    console.log(folderName);
+    // console.log(folderName);
 
     try {
         const sqlQuery = {
@@ -17,7 +17,7 @@ export default async function AddFolder(folderName: string) {
         if (!response) {
             throw new Error("Failed to fetch data");
         }
-        console.log(response.rows);
+        // console.log(response.rows);
     } catch (error) {
         console.log(error);
     }

@@ -11,7 +11,6 @@ export default function AddFolderBtn() {
 
     const handleClick = async () => {
         form ? setForm(false) : setForm(true);
-        console.log();
     };
     const handleSubmit = async (e) => {
         e.preventDefault();

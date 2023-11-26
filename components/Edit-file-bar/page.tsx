@@ -10,7 +10,7 @@ export default function EditFileBar(props: any) {
     const [showEditModal, setShowEditModal] = useState(false);
     const handleCLick = () => {
         showNav ? setShowNav(false) : setShowNav(true);
-        console.log(props);
+        // console.log(props);
     };
     const handleEditClick = () => {
         showEditModal ? setShowEditModal(false) : setShowEditModal(true);

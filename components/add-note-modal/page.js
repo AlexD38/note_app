@@ -19,7 +19,7 @@ export default function AddNoteBtn() {
     };
     return (
         <main>
-            <button onClick={handleClick}>
+            <button className="add-note-btn" onClick={handleClick}>
                 Add New Note <i className="fa-solid fa-plus"></i>
             </button>
 

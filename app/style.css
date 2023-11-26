@@ -52,6 +52,11 @@ main {
     gap: 2rem;
     background-color: #242424;
 }
+.main-wrapper {
+    justify-content: flex-start;
+    /* border: 1px solid red; */
+    padding: 0;
+}
 a {
     text-decoration: none;
     padding: 0;

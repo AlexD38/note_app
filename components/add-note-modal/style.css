@@ -58,3 +58,7 @@ input:active {
 .body {
     text-transform: capitalize;
 }
+.add-note-btn {
+    position: fixed;
+    bottom: 3rem;
+}

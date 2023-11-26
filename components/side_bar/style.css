@@ -35,6 +35,7 @@ aside ul li, ul {
 }
 .folder-list {
     transition: all .3s ease-in-out;
+    position: relative;
 }
 .folder-list:hover {
     transition: all .3s ease-in-out;
@@ -55,10 +56,12 @@ a {
     color : aliceblue;
 }
 .files-count-badge {
-    border-radius : 50%;
-    padding: .5rem 1rem;
+    position: absolute;
+    /* top: ; */
+    left: -1.5rem;
+    border-radius : 1rem;
+    font-size: .8rem;
+    padding: .3rem .5rem;
     background-color: green;
-    /* font-size: .8rem; */
     color: aliceblue;
-    /* margin: .5rem; */
 }

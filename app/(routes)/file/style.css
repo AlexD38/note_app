@@ -56,3 +56,7 @@ html {
 .single-file-body ul > li::first-letter, .single-file-body h1::first-letter {
     text-transform: capitalize;
 }
+.single-file-body li  {
+    font-family: monospace;
+    font-size: inherit;
+}

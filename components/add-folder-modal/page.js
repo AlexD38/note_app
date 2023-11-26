@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
-import "../../app/(routes)/folders/style.css";
+import "../folder_navbar/style.css";
 import AddFolder from "@/app/(routes)/folders/add/page";
 import "../add-note-modal/style.css";
 import "./style.css";

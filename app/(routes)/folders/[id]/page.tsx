@@ -1,6 +1,7 @@
 "use server";
 import Link from "next/link";
 import client from "../../../../database";
+import { revalidateTag } from "next/cache";
 
 export default async function getAllFilesFromFolder(folderId: number) {
     try {
@@ -13,6 +14,7 @@ export default async function getAllFilesFromFolder(folderId: number) {
         if (!files) {
             throw new Error("Failed to fetch data");
         }
+
         return files;
     } catch (error) {
         console.log(error);

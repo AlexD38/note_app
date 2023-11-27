@@ -29,7 +29,7 @@ GROUP BY
         if (!response) {
             throw new Error("Failed to fetch data");
         }
-        revalidateTag("files");
+        revalidatePath("folder_and_their_files");
         revalidateTag("folders");
 
         return response.rows;

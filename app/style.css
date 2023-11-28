@@ -4,13 +4,14 @@
     background-color: #242424;
     --primary-color: green;
     --secondary-color: purple;
+    --background: #242424;
 }
 html {
-    background-color: #242424;
+    background-color: aliceblue;
 }
 body {
     min-height: 100vh;
-    background-color: #242424;
+    background-color: var(--background);
     position: relative;
     margin: 0;
     max-width: 100vw;
@@ -49,7 +50,7 @@ main {
     align-items: center;
     flex-direction: column;
     gap: 2rem;
-    background-color: #242424;
+    background-color: var(--background);
 }
 .main-wrapper {
     justify-content: flex-start;

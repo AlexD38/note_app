@@ -60,3 +60,11 @@ html {
     font-family: monospace;
     font-size: inherit;
 }
+.single-file-body blockquote  {
+    background-color: #ffffff16;
+    padding: .5rem;
+    border-radius: .5rem;
+    font-family: monospace;
+    font-size: inherit;
+    font-style: italic;
+}

@@ -56,7 +56,8 @@
 
 .folder:hover {
     color: green;
-    border-color: green;;
+    border-color: green;
+    /* transform: translateY(-5px); */
     transition: all 0.3s ease;
 }
 .file-card-container {
@@ -80,13 +81,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     position: relative ;
     transition : all .3s ease;
     border-radius: 1rem;
     cursor: pointer;
     border: 1px solid aliceblue;
     opacity: .9;
+    box-shadow: 1px 0px 10px  rgba(0, 0, 0, 0.426);
 }
 .file-card:hover {
     transform: translateY(-5px);
@@ -101,6 +103,10 @@
 .file-card:hover .file-card-date {
     transition : all .3s ease;
     opacity: 0;
+}
+.file-card:hover .file-card-date::after {
+    transition : all .3s ease;
+    opacity: 1;
 }
 .file-card-header {
     display: flex;
@@ -143,7 +149,9 @@
     min-width: 100%;
     font-style: italic;
     opacity: .8;
+    position: relative;
 }
+/*  */
 .file-card-main {
     min-width: 100%;
     /* border: 1px solid red; */

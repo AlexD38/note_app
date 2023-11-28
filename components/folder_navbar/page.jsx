@@ -19,6 +19,7 @@ export default function FoldersNavbar(props) {
         const updatedFiles = files.filter((file) => file.id !== fileId);
         setFiles(updatedFiles);
     };
+
     const folders = props.foldersList;
     return (
         <div className="main-wrapper">
@@ -34,22 +35,22 @@ export default function FoldersNavbar(props) {
             <section className="file-card-container">
                 {files &&
                     files.map((file) => (
-                        <Link href={`/file?id=${file.id}`} target="_blank">
-                            <article className="file-card">
-                                <div className="file-card-header">
-                                    <nav className="file-card-navbar">
-                                        {/* <i class="fa-solid fa-magnifying-glass"></i> */}
-                                        {/* <i class="fa-solid fa-pen"></i> */}
-                                        <i onClick={() => handleDeleteClick(file.id)} class="fa-solid fa-trash"></i>
-                                    </nav>
-                                </div>
+                        <article className="file-card">
+                            <div className="file-card-header">
+                                <nav className="file-card-navbar">
+                                    {/* <i class="fa-solid fa-magnifying-glass"></i> */}
+                                    {/* <i class="fa-solid fa-pen"></i> */}
+                                    <i onClick={() => handleDeleteClick(file.id)} class="fa-solid fa-trash"></i>
+                                </nav>
+                            </div>
+                            <Link href={`/file?id=${file.id}`} target="_blank">
                                 <div className="file-card-main">
                                     <p className="file-card-title">{file.title}</p>
                                     <p className="file-card-slug">{file.slug}</p>
                                 </div>
-                                <footer className="file-card-date">{file.updated_at.toString().split("GM")[0]}</footer>
-                            </article>
-                        </Link>
+                            </Link>
+                            <footer className="file-card-date">{file.updated_at.toString().split("GM")[0]}</footer>
+                        </article>
                     ))}
             </section>
         </div>

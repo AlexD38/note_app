@@ -12,6 +12,7 @@ aside {
     transition: all .3s ease-in;
     overflow-y: scroll;
     width: 20rem;
+    
 }
 aside > * {
     opacity: .3;

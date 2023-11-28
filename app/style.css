@@ -40,8 +40,7 @@ header::after {
     font-size: 3rem;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-header > * {
-}
+
 main {
     min-width: 100vw;
     height: calc(100% - 30%);

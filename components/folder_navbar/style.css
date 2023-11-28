@@ -17,7 +17,6 @@
     position: relative;
     padding: 2rem;
     margin-right: auto;
-    /* border: 1px solid blue; */
 }
 
 .folder {
@@ -73,7 +72,7 @@
     height: fit-content;
 }
 .file-card {
-    background-color: #fff;
+    background-color: rgb(240, 248, 255);
     padding: 1rem;
     margin: 1rem;
     height: 13rem;
@@ -86,11 +85,22 @@
     transition : all .3s ease;
     border-radius: 1rem;
     cursor: pointer;
+    border: 1px solid aliceblue;
+    opacity: .9;
 }
 .file-card:hover {
     transform: translateY(-5px);
+    box-shadow: 1px 10px 10px  rgba(0, 0, 0, 0.426);
     transition : all .3s ease;
-    
+    opacity: 1;
+}
+.file-card:hover .file-card-navbar {
+    transition : all .3s ease;
+    color: red;
+}
+.file-card:hover .file-card-date {
+    transition : all .3s ease;
+    opacity: 0;
 }
 .file-card-header {
     display: flex;
@@ -107,7 +117,7 @@
     align-items: center;
     gap : 1rem;
     font-size: 1.5rem;
-    /* border: 1px solid purple; */
+    /* color: rgba(255, 0, 0, 0.507); */
 }
 .file-card-title {
     font-weight: 800;
@@ -147,3 +157,6 @@
     gap: 0;
 }
 
+a > * {
+    color : black;
+}

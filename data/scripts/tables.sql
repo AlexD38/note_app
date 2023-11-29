@@ -1,6 +1,15 @@
--- Active: 1698675345832@@localhost@5432@noteapp@public
+-- Active: 1699364041500@@localhost@5432@noteapp
 
 DROP TABLE IF EXISTS "folders", "files", "tags";
+
+CREATE TABLE
+    users (
+        id SERIAL PRIMARY KEY,
+        mail VARCHAR(255),
+        password VARCHAR(255),
+        created_at TIMESTAMP DEFAULT NOW(),
+        updated_at TIMESTAMP DEFAULT NOW()
+    );
 
 CREATE TABLE
     folders (

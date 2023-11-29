@@ -1,0 +1,39 @@
+.modal-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    /* border : 1px solid red; */
+    display: grid;
+    place-content: center;
+}
+.modal form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+.modal h1 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 3rem;
+    color: green;
+}
+.modal {
+    background-color: #ffffff1c;
+    padding: 3rem;
+    border-radius: 2rem;
+}
+.modal button {
+    margin-top: 1rem;
+}
+.modal input {
+    border: none;
+    background-color: #ffffff00;
+    border-radius: .5rem;
+    min-width: 100%;
+    padding: 1rem;
+}

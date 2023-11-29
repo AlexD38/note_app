@@ -1,13 +1,13 @@
-// import Folders from "./(routes)/folders/page";
 import "./style.css";
 import AddNoteBtn from "@/components/add-note-modal/page";
 import * as React from "react";
-import Link from "next/link";
 import Files from "./(routes)/files/page";
+
 import GetAllFolders from "./(routes)/folders/page";
 import SideBar from "@/components/side_bar/page";
 import GetAllFoldersWithTheirFiles from "./(routes)/folder_and_their_files/page";
 import FoldersNavbar from "@/components/folder_navbar/page";
+import LoginModal from "@/components/login_modal/page";
 
 export default async function Home() {
     const today = new Date();
@@ -20,13 +20,16 @@ export default async function Home() {
 
     return (
         <body>
-            <header>{currentDate}</header>
-            <main className="main-wrapper">
-                <FoldersNavbar foldersList={foldersList} />
-                <AddNoteBtn />
-                <Files />
-                <SideBar folders={folders} />
-            </main>
+            <LoginModal />
+            {/* <>
+                    <header>{currentDate}</header>
+                    <main className="main-wrapper">
+                        <FoldersNavbar foldersList={foldersList} />
+                        <AddNoteBtn />
+                        <Files />
+                        <SideBar folders={folders} />
+                    </main>
+                </> */}
         </body>
     );
 }

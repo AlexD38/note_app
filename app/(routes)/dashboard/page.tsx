@@ -1,11 +1,11 @@
-import "./style.css";
+import "../../style.css";
 import AddNoteBtn from "@/components/add-note-modal/page";
 import * as React from "react";
-import Files from "./(routes)/files/page";
+import Files from "../../(routes)/files/page";
 
-import GetAllFolders from "./(routes)/folders/page";
+import GetAllFolders from "../../(routes)/folders/page";
 import SideBar from "@/components/side_bar/page";
-import GetAllFoldersWithTheirFiles from "./(routes)/folder_and_their_files/page";
+import GetAllFoldersWithTheirFiles from "../../(routes)/folder_and_their_files/page";
 import FoldersNavbar from "@/components/folder_navbar/page";
 import LoginModal from "@/components/login_modal/page";
 
@@ -16,11 +16,17 @@ export default async function Home() {
     const date = today.getDate();
     const currentDate = month + "/" + date + "/" + year;
     const folders = await GetAllFoldersWithTheirFiles();
-    const foldersList = await GetAllFolders(1);
+    // const foldersList = await GetAllFolders(1);
 
     return (
         <body>
-            <LoginModal />
+            <header>{currentDate}</header>
+            <main className="main-wrapper">
+                <FoldersNavbar />
+                <AddNoteBtn />
+                <Files />
+                <SideBar folders={folders} />
+            </main>
         </body>
     );
 }

@@ -1,4 +1,5 @@
 "use server";
+import { redirect } from "next/navigation";
 import client from "../../../database";
 
 export default async function getUserInfo(mail, pwd) {
@@ -16,6 +17,7 @@ export default async function getUserInfo(mail, pwd) {
         }
         user.isConnected = "true";
         console.log(user);
+        // redirect("/dashboard");
         return user;
     } catch (error) {
         console.log(error);

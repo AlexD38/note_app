@@ -2,11 +2,31 @@
 import "./style.css";
 import AddFolderBtn from "../add-folder-modal/page";
 import getAllFilesFromFolder from "@/app/(routes)/folders/[id]/page";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DeleteFile } from "@/app/(routes)/file/delete/page";
 import Link from "next/link";
+import GetAllFolders from "@/app/(routes)/folders/page";
 
 export default function FoldersNavbar(props) {
+    const userId = localStorage.getItem("userId");
+    const [folders, setFolders] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const foldersFromDb = await GetAllFolders(userId);
+                if (!foldersFromDb) {
+                    console.error("Could not find folders in the database");
+                    return;
+                }
+                setFolders(foldersFromDb);
+            } catch (error) {
+                console.error("Error fetching folders:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     const [files, setFiles] = useState([]);
     console.log(props);
     const handleClick = async (folderId) => {
@@ -20,7 +40,6 @@ export default function FoldersNavbar(props) {
         setFiles(updatedFiles);
     };
 
-    const folders = props.foldersList;
     return (
         <div className="main-wrapper">
             <section className="folders-main-wrapper">

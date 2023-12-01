@@ -1,3 +1,48 @@
+@-webkit-keyframes buzz {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-1px) ;
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(1px);
+  }
+}
+
+
+
+
+@keyframes buzz {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-1px) ;
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(1px);
+  }
+}
+
+
+
+
+@keyframes buzz {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px) ;
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+
+
+
 .modal-wrapper {
     position: absolute;
     top: 0;
@@ -13,14 +58,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+    padding: 1rem;
     margin: 1rem;
+    position: relative;
+    width:20vw;
 }
 .modal h1 {
     text-align: center;
     margin: 0;
     margin-bottom: 3rem;
     color: green;
+    font-family: monospace;
 }
 .modal {
     background-color: #ffffff1c;
@@ -28,12 +77,59 @@
     border-radius: 2rem;
 }
 .modal button {
-    margin-top: 1rem;
+    margin-top: 5rem;
 }
-.modal input {
+.modal-wrapper .modal input {
     border: none;
-    background-color: #ffffff00;
     border-radius: .5rem;
     min-width: 100%;
     padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.273) ;
+    font-family: monospace;
+    text-align: center;
+    color: aliceblue;
+}
+.modal-wrapper .modal input:focus {
+    outline: 2px solid green;; /* This removes the default outline that browsers add */
+}
+.invalid {
+    transition: all .3s ease;
+    outline: 2px solid red; /* This removes the default outline that browsers add */
+}
+.disabled {
+    transition: all .3s ease;
+    background-color: grey;
+}
+.error-message {
+    transition: opacity .3s ease;
+    opacity: 1;
+    color: red;
+    font-family: monospace;
+    letter-spacing: .05rem;
+    -webkit-animation: buzz 500ms;
+    animation: buzz 500ms;
+}
+form i {
+    transition: all .3s ease;
+    position: absolute;
+    bottom: 60%;
+    right: 2rem;
+    opacity: .5;
+}
+form i:hover {
+    opacity: 1;
+    transition: all .3s ease;
+}
+.underlined {
+    font-family: monospace;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: .5rem;
+}
+span {
+    color: aliceblue;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
 }

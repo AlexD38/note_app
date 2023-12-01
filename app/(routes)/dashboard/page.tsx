@@ -8,6 +8,7 @@ import SideBar from "@/components/side_bar/page";
 import GetAllFoldersWithTheirFiles from "../../(routes)/folder_and_their_files/page";
 import FoldersNavbar from "@/components/folder_navbar/page";
 import LoginModal from "@/components/login_modal/page";
+import UnlogBtn from "@/components/unlog_btn/page";
 
 export default async function Home() {
     const today = new Date();
@@ -22,6 +23,7 @@ export default async function Home() {
         <body>
             <header>{currentDate}</header>
             <main className="main-wrapper">
+                <UnlogBtn />
                 <FoldersNavbar />
                 <AddNoteBtn />
                 <Files />

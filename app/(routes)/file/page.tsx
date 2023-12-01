@@ -25,17 +25,14 @@ export default async function getOneFile(request: any) {
             throw new Error("Failed to fetch data");
         }
         return (
-            <>
-                {/* <head>
-                    <title>{file.title}</title>
-                </head> */}
+            <body>
                 <main className="single-file-main-wrapper">
                     <EditFileBar file={fileId} wholeFile={file} />
                     <h1 className="single-file-title">{file.title}</h1>
                     <h2 className="single-file-slug">{file.slug}</h2>
                     <p className="single-file-body" dangerouslySetInnerHTML={{ __html: decodedHTML }}></p>
                 </main>
-            </>
+            </body>
         );
     } catch (error) {
         console.log(error);

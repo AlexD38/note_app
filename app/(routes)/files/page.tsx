@@ -28,13 +28,7 @@ export default async function Files() {
         <section className="files-main-wrapper">
             {files.length > 0 ? <h1>A trier : </h1> : <></>}
 
-            {files &&
-                files.map((file: { title: string; id: number }) => (
-                    // <Link target="_blank" href={`/folders/${file.id}`}>
-                    <ToSortFiles file={file} folders={folders} />
-
-                    // </Link>
-                ))}
+            {files && files.map((file: { title: string; id: number }) => <ToSortFiles file={file} folders={folders} />)}
         </section>
     );
 }

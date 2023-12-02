@@ -1,18 +1,16 @@
 "use server";
 import client from "../../../database";
 
-export default async function GetAllFolders(userId) {
+export default async function GetAllFolders() {
     try {
         const sqlQuery = {
-            text: `SELECT * FROM folders WHERE user_id = $1 ;`,
-            values: [userId],
+            text: `SELECT * FROM folders  ;`,
         };
         const response = await client.query(sqlQuery);
-        return response.rows;
-
         if (!response) {
             throw new Error("Failed to fetch data");
         }
+        return response.rows;
     } catch (error) {
         console.log(error);
     }

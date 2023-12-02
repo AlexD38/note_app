@@ -1,6 +1,7 @@
 "use client";
 
 import { SortOneFile } from "@/app/(routes)/files/sort/page";
+import GetAllFolders from "@/app/(routes)/folders/page";
 import { useRef, useState } from "react";
 
 export default function ToSortFiles(props: any) {
@@ -22,6 +23,7 @@ export default function ToSortFiles(props: any) {
         SortOneFile(folderId, props.file.id);
         setshowFolderChoice(false);
     };
+
     return (
         <div className="file">
             <h3>{props.file.title}</h3>

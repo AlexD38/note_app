@@ -5,11 +5,15 @@ import GetAllFolders from "@/app/(routes)/folders/page";
 import { useRef, useState } from "react";
 
 export default function ToSortFiles(props: any) {
-    // console.log("props", props);
+    const userId = localStorage.getItem("userId");
     const [showFolderChoice, setshowFolderChoice] = useState(false);
+    const [folders, setFolders] = useState([]);
     const [selectedFolder, setSelectedFolder] = useState("");
     const folderRef = useRef(null);
-    const handleClick = () => {
+    const handleClick = async () => {
+        const foldersFound = await GetAllFolders(userId);
+        setFolders(foldersFound);
+        console.log(foldersFound);
         showFolderChoice ? setshowFolderChoice(false) : setshowFolderChoice(true);
     };
     const handleSelectChange = () => {
@@ -19,7 +23,6 @@ export default function ToSortFiles(props: any) {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         const folderId = folderRef.current.value;
-        // console.log("submitted");
         SortOneFile(folderId, props.file.id);
         setshowFolderChoice(false);
     };
@@ -32,7 +35,7 @@ export default function ToSortFiles(props: any) {
             {showFolderChoice && (
                 <form onSubmit={handleSubmit}>
                     <select ref={folderRef} onChange={handleSelectChange}>
-                        {props.folders.map((folder: { name: string; id: number }) => (
+                        {folders.map((folder: { name: string; id: number }) => (
                             <option value={folder.id}>{folder.name}</option>
                         ))}
                     </select>

@@ -4,6 +4,7 @@ import "../login_modal/style.css";
 
 import { useRouter } from "next/navigation";
 import getUserInfo from "@/app/(routes)/users/page";
+import InsertUserInfo from "@/app/(routes)/users/sign_up/page";
 
 export default function SignUpModal(props) {
     const router = useRouter();
@@ -23,7 +24,7 @@ export default function SignUpModal(props) {
         setError(false);
         setIsLoading(true);
         e.preventDefault();
-        const userInfo = await getUserInfo(mailRef.current.value, pwdRef.current.value);
+        const userInfo = await InsertUserInfo(userNameRef.current.value, mailRef.current.value, pwdRef.current.value);
         console.log(userInfo);
         if (!userInfo) {
             const error = { message: "Mauvais identifiants !" };

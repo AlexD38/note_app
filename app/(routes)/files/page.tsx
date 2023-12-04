@@ -7,7 +7,7 @@ import GetAllFolders from "../folders/page";
 export async function GetAllFiles() {
     try {
         const sqlQuery = {
-            text: `SELECT * FROM files  WHERE folder_id IS null ORDER BY updated_at DESC;`,
+            text: `SELECT * FROM files WHERE folder_id IS null ORDER BY updated_at DESC;`,
         };
         const response = await client.query(sqlQuery);
 

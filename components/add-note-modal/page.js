@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./style.css";
 import AddFile from "@/app/(routes)/files/add/page";
 export default function AddNoteBtn() {

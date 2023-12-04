@@ -58,7 +58,7 @@ export default function LoginModal() {
                         <form onSubmit={handleSubmit}>
                             <input className={error && "invalid"} pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" type="text" ref={mailRef} placeholder="email" required />
                             <input className={error && "invalid"} pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{6,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" type={showPwd ? "text" : "password"} ref={pwdRef} placeholder="password" required />
-                            <i onMouseEnter={handleShowPwd} onMouseLeave={handleShowPwd} class="fa-solid fa-eye"></i>
+                            <i onMouseEnter={handleShowPwd} onMouseLeave={handleShowPwd} className="fa-solid fa-eye"></i>
                             {errorMessage && <span className="error-message">{errorMessage}</span>}
                             {isLoading ? (
                                 <button className="disabled" disabled>

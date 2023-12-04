@@ -2,9 +2,6 @@
 import Link from "next/link";
 import client from "../../../../database";
 import { revalidateTag } from "next/cache";
-// import "./style.css";
-// import ToSortFiles from "@/components/To_sort_files/toSortFiles";
-// import { GetAllFolders } from "../folders/page";
 
 export async function SortOneFile(folderId: number, fileId: number) {
     try {

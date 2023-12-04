@@ -8,7 +8,7 @@ import Link from "next/link";
 import GetAllFolders from "@/app/(routes)/folders/page";
 
 export default function FoldersNavbar(props) {
-    const userId = localStorage.getItem("userId");
+    const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
     const [folders, setFolders] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -25,10 +25,10 @@ export default function FoldersNavbar(props) {
         };
 
         fetchData();
-    }, []);
+    }, [folders]);
 
     const [files, setFiles] = useState([]);
-    console.log(props);
+    // console.log(props);
     const handleClick = async (folderId) => {
         const files = await getAllFilesFromFolder(folderId);
         setFiles(files);

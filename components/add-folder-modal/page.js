@@ -6,6 +6,7 @@ import "../add-note-modal/style.css";
 import "./style.css";
 
 export default function AddFolderBtn() {
+    const userId = localStorage.getItem("userId");
     const [form, setForm] = useState(false);
     const folderNameRef = useRef(null);
 
@@ -14,7 +15,7 @@ export default function AddFolderBtn() {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await AddFolder(folderNameRef.current.value);
+        await AddFolder(folderNameRef.current.value, userId);
         handleClick();
         alert("Your folder has been added");
     };

@@ -23,7 +23,7 @@ export default function LoginModal() {
         setShowPwd((showPwd) => !showPwd);
     };
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e) => {
         setError(false);
         setIsLoading(true);
         e.preventDefault();
@@ -69,7 +69,7 @@ export default function LoginModal() {
                             )}
                         </form>
                         <span>
-                            Vous n'avez pas encore de compte ?{" "}
+                            Vous n&apos;avez pas encore de compte ?{" "}
                             <span onClick={handleSignUpClick} className="underlined">
                                 Créez un compte
                             </span>

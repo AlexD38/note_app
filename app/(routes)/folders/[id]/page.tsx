@@ -3,7 +3,7 @@ import Link from "next/link";
 import client from "../../../../database";
 import { revalidateTag } from "next/cache";
 
-export default async function getAllFilesFromFolder(folderId: number) {
+export default async function getAllFilesFromFolder(folderId: any) {
     try {
         const sqlQuery = {
             text: `SELECT * FROM files WHERE folder_id = $1;`,

@@ -3,7 +3,7 @@ import Link from "next/link";
 import client from "../../../../database";
 import { revalidateTag } from "next/cache";
 
-export async function SortOneFile(folderId: number, fileId: number) {
+export default async function SortOneFile(folderId: any, fileId: any) {
     try {
         const sqlQuery = {
             text: `UPDATE files SET folder_id = $1 WHERE id = $2;;`,

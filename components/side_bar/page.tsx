@@ -12,7 +12,13 @@ export default function SideBar(props: any) {
         });
     };
     const hideFolderFiles = () => {
-        setFolderStates(false);
+        setFolderStates((prevStates) => {
+            const newState: { [key: string]: boolean } = {};
+            Object.keys(prevStates).forEach((key) => {
+                newState[key] = false;
+            });
+            return newState;
+        });
     };
 
     const folders = props.folders;

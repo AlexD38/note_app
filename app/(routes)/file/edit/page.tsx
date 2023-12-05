@@ -13,7 +13,7 @@ export default async function EditFile(fileId: number, fileTitle: string, fileSl
         const fileDeleted = response.rows[0];
         // console.log(`file updated is : `, fileDeleted);
         revalidateTag("files");
-        revalidateTag("folders");
+        // revalidateTag("folders");
     } catch (error) {
         console.log(error);
     }

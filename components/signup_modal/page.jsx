@@ -20,7 +20,7 @@ export default function SignUpModal(props) {
         setShowPwd((showPwd) => !showPwd);
     };
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e) => {
         setError(false);
         setIsLoading(true);
         e.preventDefault();

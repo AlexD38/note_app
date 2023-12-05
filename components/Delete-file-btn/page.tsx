@@ -4,7 +4,7 @@ import { useState } from "react";
 import "../../app/style.css";
 import "./style.css";
 
-import { DeleteFile } from "@/app/(routes)/file/delete/page";
+import DeleteFile from "@/app/(routes)/file/delete/page";
 
 export default function DeleteBtn(props: any, children: any) {
     const [showModal, setShowModal] = useState(false);

@@ -2,7 +2,7 @@
 import { redirect } from "next/navigation";
 import client from "../../../../database";
 
-export default async function InsertUserInfo(userName, mail, pwd) {
+export default async function InsertUserInfo(userName: any, mail: any, pwd: any) {
     try {
         const sqlQuery = {
             text: `INSERT INTO users (userName, mail, password) VALUES ($1, $2, $3) RETURNING *`,

@@ -7,7 +7,7 @@ import { DeleteFile } from "@/app/(routes)/file/delete/page";
 import Link from "next/link";
 import GetAllFolders from "@/app/(routes)/folders/page";
 
-export default function FoldersNavbar(props) {
+export default function FoldersNavbar() {
     const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
     const [folders, setFolders] = useState([]);
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function FoldersNavbar(props) {
         };
 
         fetchData();
-    }, [folders]);
+    });
 
     const [files, setFiles] = useState([]);
     // console.log(props);
@@ -48,7 +48,7 @@ export default function FoldersNavbar(props) {
             <section className="folders-main-wrapper">
                 {folders &&
                     folders.map((folder) => (
-                        <article onClick={() => handleClick(folder.id)} className="folder" draggable={true}>
+                        <article key={folder.id} onClick={() => handleClick(folder.id)} className="folder" draggable={true}>
                             {folder.name}
                         </article>
                     ))}
@@ -57,7 +57,7 @@ export default function FoldersNavbar(props) {
             <section className="file-card-container">
                 {files &&
                     files.map((file) => (
-                        <article className="file-card">
+                        <article key={file.id} className="file-card">
                             <div className="file-card-header">
                                 <nav className="file-card-navbar">
                                     {/* <i class="fa-solid fa-magnifying-glass"></i> */}

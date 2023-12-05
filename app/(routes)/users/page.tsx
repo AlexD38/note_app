@@ -2,7 +2,7 @@
 import { redirect } from "next/navigation";
 import client from "../../../database";
 
-export default async function getUserInfo(mail, pwd) {
+export default async function getUserInfo(mail: any, pwd: any) {
     try {
         const sqlQuery = {
             text: `SELECT * FROM users WHERE mail = $1 AND password = $2;`,

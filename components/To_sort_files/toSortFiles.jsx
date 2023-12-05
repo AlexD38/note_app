@@ -1,16 +1,16 @@
 "use client";
 import GetAllFiles from "@/app/(routes)/files/page";
-import { SortOneFile } from "@/app/(routes)/files/sort/page";
+import SortOneFile from "@/app/(routes)/files/sort/page";
 import GetAllFolders from "@/app/(routes)/folders/page";
 import { useEffect, useRef, useState } from "react";
 import "./style.css";
 
-export default function ToSortFiles(props: any) {
+export default function ToSortFiles(props) {
     const userId = localStorage.getItem("userId");
     const [showFolderChoice, setshowFolderChoice] = useState(false);
     const [folders, setFolders] = useState(props.folders);
     const [files, setFiles] = useState([]);
-    const [selectedFileId, setSelectedFileId] = useState<number | null>(null);
+    const [selectedFileId, setSelectedFileId] = useState(null);
     const [selectedFolder, setSelectedFolder] = useState("");
     const folderRef = useRef(null);
 
@@ -31,7 +31,7 @@ export default function ToSortFiles(props: any) {
         fetchData();
     }, [files]);
 
-    const handleClick = async (fileId: number) => {
+    const handleClick = async (fileId) => {
         const foldersFound = await GetAllFolders(userId);
         setFolders(foldersFound);
         setSelectedFileId(fileId);
@@ -47,7 +47,7 @@ export default function ToSortFiles(props: any) {
         setSelectedFolder(selectedOption);
     };
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const folderId = folderRef.current.value;
         SortOneFile(folderId, e.target.id);
@@ -58,15 +58,15 @@ export default function ToSortFiles(props: any) {
     return (
         <section className="file-to-sort-main-wrapper">
             {files &&
-                files.map((file: { title: string; id: number }) => (
-                    <div className="file">
+                files.map((file) => (
+                    <div className="file" key={file.id}>
                         <h3 className="file-to-sort-title">{file.title}</h3>
                         {!showFolderChoice && <button onClick={() => handleClick(file.id)}>Ajouter au dossier</button>}
 
                         {showFolderChoice && selectedFileId === file.id && (
                             <form onSubmit={handleSubmit} id={file.id}>
                                 <select ref={folderRef} onChange={handleSelectChange}>
-                                    {folders.map((folder: { name: string; id: number }) => (
+                                    {folders.map((folder) => (
                                         <option key={folder.id} value={folder.id}>
                                             {folder.name}
                                         </option>

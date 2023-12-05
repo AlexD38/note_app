@@ -1,7 +1,7 @@
 "use server";
 import client from "../../../database";
 
-export default async function GetAllFolders(userId) {
+export default async function GetAllFolders(userId: any) {
     try {
         const sqlQuery = {
             text: `SELECT * FROM folders WHERE user_id = $1  ;`,

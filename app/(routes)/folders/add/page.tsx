@@ -5,7 +5,7 @@ import "../../../style.css";
 import "./style.css";
 import { revalidatePath, revalidateTag } from "next/cache";
 
-export default async function AddFolder(folderName: string, userId: number) {
+export default async function AddFolder(folderName: any, userId: any) {
     // console.log(folderName);
 
     try {

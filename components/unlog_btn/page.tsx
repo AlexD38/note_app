@@ -10,7 +10,7 @@ export default function UnlogBtn() {
     const handleClick = () => {
         localStorage.clear();
         setLoggedin(false);
-        router.push("/");
+        location.href = "/";
     };
     return (
         <>

@@ -5,8 +5,8 @@ import AddFolder from "@/app/(routes)/folders/add/page";
 import "../add-note-modal/style.css";
 import "./style.css";
 
-export default function AddFolderBtn() {
-    const userId = localStorage.getItem("userId");
+export default function AddFolderBtn(props) {
+    const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
     const [form, setForm] = useState(false);
     const folderNameRef = useRef(null);
 
@@ -15,9 +15,16 @@ export default function AddFolderBtn() {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await AddFolder(folderNameRef.current.value, userId);
-        handleClick();
-        alert("Your folder has been added");
+
+        try {
+            await AddFolder(folderNameRef.current.value, userId);
+
+            props.folders(folderNameRef.current.value);
+            handleClick();
+        } catch (error) {
+            console.error("Error adding folder:", error);
+            alert("Failed to add the folder. Please try again.");
+        }
     };
 
     return (

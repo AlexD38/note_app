@@ -39,6 +39,9 @@ export default function FoldersNavbar(props) {
         const updatedFiles = files.filter((file) => file.id !== fileId);
         setFiles(updatedFiles);
     };
+    const updatedFolders = (folderName) => {
+        setFolders((prevFolders) => [...prevFolders, folderName]);
+    };
 
     return (
         <div className="main-wrapper">
@@ -49,7 +52,7 @@ export default function FoldersNavbar(props) {
                             {folder.name}
                         </article>
                     ))}
-                <AddFolderBtn />
+                <AddFolderBtn folders={updatedFolders} />
             </section>
             <section className="file-card-container">
                 {files &&

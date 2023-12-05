@@ -1,10 +1,11 @@
+"use server";
 import Link from "next/link";
 import client from "../../../database";
 import "./style.css";
 import ToSortFiles from "@/components/To_sort_files/toSortFiles";
 import GetAllFolders from "../folders/page";
 
-export async function GetAllFiles() {
+export default async function GetAllFiles() {
     try {
         const sqlQuery = {
             text: `SELECT * FROM files WHERE folder_id IS null ORDER BY updated_at DESC;`,
@@ -19,16 +20,4 @@ export async function GetAllFiles() {
     } catch (error) {
         console.log(error);
     }
-}
-
-export default async function Files() {
-    const files = await GetAllFiles();
-    const folders = await GetAllFolders();
-    return (
-        <section className="files-main-wrapper">
-            {files.length > 0 ? <h1>A trier : </h1> : <></>}
-
-            {files && files.map((file: { title: string; id: number }) => <ToSortFiles file={file} folders={folders} />)}
-        </section>
-    );
 }

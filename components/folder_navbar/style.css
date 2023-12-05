@@ -3,6 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+    max-width: 90%;
 }
 .folders-main-wrapper {
     min-width: 80%;
@@ -65,9 +68,10 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
-    /* border : 1px solid red; */
-    width: min(100vw, 100%);
+    /* border : 1px solid yellow; */
+    width: min(200rem, 100%);
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;

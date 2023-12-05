@@ -12,10 +12,13 @@ export default function AddNoteBtn() {
         form ? setForm(false) : setForm(true);
     };
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        await AddFile(titleRef.current.value, slugRef.current.value, bodyRef.current.value);
-        handleClick();
-        alert("Your note has been added");
+        try {
+            e.preventDefault();
+            await AddFile(titleRef.current.value, slugRef.current.value, bodyRef.current.value);
+            handleClick();
+        } catch (error) {
+            alert("failed to add file, please try again" + error);
+        }
     };
     return (
         <main>

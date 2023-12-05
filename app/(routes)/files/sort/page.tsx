@@ -10,7 +10,6 @@ export async function SortOneFile(folderId: number, fileId: number) {
             values: [folderId, fileId],
         };
         const response = await client.query(sqlQuery);
-        revalidateTag("files");
 
         if (!response) {
             throw new Error("Failed to fetch data");

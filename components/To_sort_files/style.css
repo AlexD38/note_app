@@ -1,0 +1,35 @@
+.file-to-sort-main-wrapper {
+    /* border : 1px solid red; */
+    min-width: 80%;
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    
+}
+.file {
+    border: 1px solid green;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    position: relative;
+    width: min(20rem,100%);
+    cursor: pointer;
+}
+
+.file:hover {
+    background-color: #ffffff32;;
+    transition: all .2s ease;
+}
+.file-to-sort-title {
+    color: aliceblue;
+    font-size: 1.125rem;
+}

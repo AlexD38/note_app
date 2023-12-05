@@ -3,15 +3,15 @@ import { redirect } from "next/navigation";
 import client from "../../../../database";
 import "../../../style.css";
 import "./style.css";
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
-export default async function AddFolder(folderName: string) {
+export default async function AddFolder(folderName: any, userId: any) {
     // console.log(folderName);
 
     try {
         const sqlQuery = {
-            text: `INSERT INTO folders (name) VALUES ($1) RETURNING *;`,
-            values: [folderName],
+            text: `INSERT INTO folders (name, user_id) VALUES ($1, $2) RETURNING *;`,
+            values: [folderName, userId],
         };
         const response = await client.query(sqlQuery);
         if (!response) {
@@ -22,4 +22,5 @@ export default async function AddFolder(folderName: string) {
         console.log(error);
     }
     revalidateTag("folders");
+    revalidatePath("/folders");
 }

@@ -17,18 +17,22 @@ export default function UpdateFileForm(props: any) {
         const fileSlug = slugRef.current?.value;
         const fileBody = bodyRef.current?.value;
 
-        await EditFile(fileId, fileTitle, fileSlug, fileBody);
-        props.onClose();
+        // Check for undefined values before passing them to EditFile
+        if (fileTitle !== undefined && fileSlug !== undefined && fileBody !== undefined) {
+            await EditFile(fileId, fileTitle, fileSlug, fileBody);
+            props.onClose();
+        }
     };
+
     const handleClick = () => {
         props.onClose();
-        // console.log(props);
     };
+
     return (
         <form className="add-file-form" onSubmit={handleSubmit}>
             <fieldset>
-                <input type="text" className="title" ref={titleRef} placeholder={props.wholeFile.title} defaultValue={props.wholeFile.title} required></input>
-                <input type="text" className="slug" ref={slugRef} placeholder={props.wholeFile.slug} defaultValue={props.wholeFile.slug} required></input>
+                <input type="text" className="title" ref={titleRef} placeholder={props.wholeFile.title} defaultValue={props.wholeFile.title} required />
+                <input type="text" className="slug" ref={slugRef} placeholder={props.wholeFile.slug} defaultValue={props.wholeFile.slug} required />
                 <textarea ref={bodyRef} placeholder={props.wholeFile.body} className="body" rows={20} defaultValue={props.wholeFile.body} required></textarea>
             </fieldset>
             <div className="btn-container">

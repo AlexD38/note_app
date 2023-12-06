@@ -4,6 +4,9 @@ import client from "../../../database";
 
 export default async function getUserInfo(mail: any, pwd: any) {
     try {
+        if (typeof window === "undefined") {
+            return null;
+        }
         const sqlQuery = {
             text: `SELECT * FROM users WHERE mail = $1 AND password = $2;`,
             values: [mail, pwd],

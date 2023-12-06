@@ -1,21 +1,29 @@
-"use server";
-import { redirect } from "next/navigation";
-import client from "../../../../database";
-import "../../../style.css";
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers"; // Importing cookies from next/headers
+import client from "../../../../database";
 
 export default async function AddFile(fileName: string, fileSlug: string, fileBody: string) {
     try {
+        // Retrieve cookies within the async context
+        const cookieData = cookies().getAll();
+        if (typeof window === "undefined") {
+            return null;
+        }
+
         const sqlQuery = {
             text: `INSERT INTO files (title, slug, body) VALUES ($1, $2, $3) RETURNING *;`,
             values: [fileName, fileSlug, fileBody],
         };
+
         const response = await client.query(sqlQuery);
+
         if (!response) {
             throw new Error("Failed to fetch data");
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
+
+    // Move revalidatePath inside the try block to ensure proper async context
     revalidatePath("/files/sort");
 }

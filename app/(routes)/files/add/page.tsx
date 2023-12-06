@@ -1,11 +1,9 @@
 import { revalidatePath } from "next/cache";
-import { cookies } from "next/headers"; // Importing cookies from next/headers
 import client from "../../../../database";
 
 export default async function AddFile(fileName: string, fileSlug: string, fileBody: string) {
     try {
         // Retrieve cookies within the async context
-        const cookieData = cookies().getAll();
         if (typeof window === "undefined") {
             return null;
         }

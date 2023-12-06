@@ -54,7 +54,7 @@ export default function SignUpModal(props) {
                 <form onSubmit={handleSubmit}>
                     <input className={error && "invalid"} type="text" ref={userNameRef} placeholder="Username" required />
                     <input className={error && "invalid"} pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" type="text" ref={mailRef} placeholder="e-mail" required />
-                    <input className={error && "invalid"} pattern="^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\\d!@#$%^&*()-_+=]{6,}@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" type={showPwd ? "text" : "password"} ref={pwdRef} placeholder="password" required />
+                    <input className={error && "invalid"} pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{6,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" type={showPwd ? "text" : "password"} ref={pwdRef} placeholder="password" required />
                     <i onMouseEnter={handleShowPwd} onMouseLeave={handleShowPwd} className="fa-solid fa-eye sign-up-eye"></i>
                     {errorMessage && <span className="error-message">{errorMessage}</span>}
                     {isLoading ? (

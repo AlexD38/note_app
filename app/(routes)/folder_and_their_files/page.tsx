@@ -2,6 +2,9 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import client from "../../../database";
 export default async function GetAllFoldersWithTheirFiles() {
     try {
+        if (typeof window === "undefined") {
+            return null;
+        }
         const sqlQuery = {
             text: `SELECT
     folders.id AS folder_id,

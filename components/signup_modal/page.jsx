@@ -15,6 +15,8 @@ export default function SignUpModal(props) {
     const userNameRef = useRef(null);
     const mailRef = useRef(null);
     const pwdRef = useRef(null);
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{6,}$/;
 
     const handleShowPwd = () => {
         setShowPwd((showPwd) => !showPwd);
@@ -26,6 +28,7 @@ export default function SignUpModal(props) {
         e.preventDefault();
         const userInfo = await InsertUserInfo(userNameRef.current.value, mailRef.current.value, pwdRef.current.value);
         console.log(userInfo);
+
         if (!userInfo) {
             const error = { message: "Mauvais identifiants !" };
             setErrorMessage(error.message);
@@ -53,9 +56,9 @@ export default function SignUpModal(props) {
                 <h1>Creez un compte</h1>
                 <form onSubmit={handleSubmit}>
                     <input className={error && "invalid"} type="text" ref={userNameRef} placeholder="Username" required />
-                    <input className={error && "invalid"} pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" type="text" ref={mailRef} placeholder="e-mail" required />
-                    <input className={error && "invalid"} pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{6,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" type={showPwd ? "text" : "password"} ref={pwdRef} placeholder="password" required />
-                    <i onMouseEnter={handleShowPwd} onMouseLeave={handleShowPwd} class="fa-solid fa-eye sign-up-eye"></i>
+                    <input className={error && "invalid"} type="text" ref={mailRef} placeholder="e-mail" required />
+                    <input className={error && "invalid"} type={showPwd ? "text" : "password"} ref={pwdRef} placeholder="password" required />
+                    <i onMouseEnter={handleShowPwd} onMouseLeave={handleShowPwd} className="fa-solid fa-eye sign-up-eye"></i>
                     {errorMessage && <span className="error-message">{errorMessage}</span>}
                     {isLoading ? (
                         <button className="disabled" disabled>

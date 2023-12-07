@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import "./style.css";
 
 export default function ToSortFiles(props) {
-    const userId = localStorage.getItem("userId");
+    const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
     const [showFolderChoice, setshowFolderChoice] = useState(false);
     const [folders, setFolders] = useState(props.folders);
     const [files, setFiles] = useState([]);

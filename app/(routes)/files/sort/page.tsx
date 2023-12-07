@@ -5,6 +5,9 @@ import { revalidateTag } from "next/cache";
 
 export default async function SortOneFile(folderId: any, fileId: any) {
     try {
+        if (typeof window === "undefined") {
+            return null;
+        }
         const sqlQuery = {
             text: `UPDATE files SET folder_id = $1 WHERE id = $2;;`,
             values: [folderId, fileId],

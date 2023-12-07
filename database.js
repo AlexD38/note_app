@@ -1,4 +1,4 @@
-// // import du module pg pour la db
+// import du module pg pour la db
 // import pg from "pg";
 // import dotenv from "dotenv";
 // // définition du client

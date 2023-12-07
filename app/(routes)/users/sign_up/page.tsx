@@ -1,5 +1,6 @@
 "use server";
-import { redirect } from "next/navigation";
+import { sql } from "@vercel/postgres";
+import { NextResponse } from "next/server";
 import client from "../../../../database";
 
 export default async function InsertUserInfo(userName: any, mail: any, pwd: any) {

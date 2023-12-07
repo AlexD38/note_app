@@ -1,32 +1,28 @@
 "use server";
+import { redirect } from "next/navigation";
 import client from "../../../database";
-
-const USER_NOT_CONNECTED_ERROR = "User not connected";
 
 export default async function getUserInfo(mail: any, pwd: any) {
     try {
         if (typeof window === "undefined") {
-            throw new Error("This function should not be called on the server side.");
+            return null;
         }
-
         const sqlQuery = {
             text: `SELECT * FROM users WHERE mail = $1 AND password = $2;`,
             values: [mail, pwd],
         };
-
         const response = await client.query(sqlQuery);
-        const userFromDB = response.rows[0];
-
-        if (!userFromDB) {
-            throw new Error(USER_NOT_CONNECTED_ERROR);
+        let user = response.rows[0];
+        if (!user) {
+            user.isConnected = "false";
+            return "user not connected";
+            throw new Error("Failed to fetch user information");
         }
-
-        const user = { ...userFromDB, isConnected: "true" };
+        user.isConnected = "true";
         console.log(user);
-
+        // redirect("/dashboard");
         return user;
     } catch (error) {
-        console.error(error);
-        throw new Error(USER_NOT_CONNECTED_ERROR);
+        console.log(error);
     }
 }

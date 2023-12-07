@@ -13,7 +13,7 @@ export default async function getUserInfo(mail, pwd) {
         //     values: [mail, pwd],
         // };
         // const response = await client.query(sqlQuery);
-        const response = await sql`SELECT * FROM users WHERE mail = ${mail} AND password=${pwd};`;
+        const response = await sql`SELECT * FROM users WHERE mail = '${mail}' AND password='${pwd}';`;
         let user = response.rows[0];
         if (!user) {
             user.isConnected = "false";

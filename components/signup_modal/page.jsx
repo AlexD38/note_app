@@ -15,6 +15,8 @@ export default function SignUpModal(props) {
     const userNameRef = useRef(null);
     const mailRef = useRef(null);
     const pwdRef = useRef(null);
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{6,}$/;
 
     const handleShowPwd = () => {
         setShowPwd((showPwd) => !showPwd);
@@ -26,6 +28,19 @@ export default function SignUpModal(props) {
         e.preventDefault();
         const userInfo = await InsertUserInfo(userNameRef.current.value, mailRef.current.value, pwdRef.current.value);
         console.log(userInfo);
+        if (!emailRegex.test(mailRef.current.value)) {
+            setErrorMessage("Adresse e-mail invalide");
+            setError(true);
+            setIsLoading(false);
+            return;
+        }
+
+        if (!passwordRegex.test(pwdRef.current.value)) {
+            setErrorMessage("Mot de passe invalide");
+            setError(true);
+            setIsLoading(false);
+            return;
+        }
         if (!userInfo) {
             const error = { message: "Mauvais identifiants !" };
             setErrorMessage(error.message);

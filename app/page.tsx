@@ -19,8 +19,8 @@ export default async function Home() {
     const foldersList = await GetAllFolders(1);
 
     return (
-        <body>
-            <LoginModal />
-        </body>
+        // <body>
+        <LoginModal />
+        // </body>
     );
 }

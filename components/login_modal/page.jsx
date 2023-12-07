@@ -27,7 +27,7 @@ export default function LoginModal() {
         setError(false);
         setIsLoading(true);
         e.preventDefault();
-        const userInfo = await getUserInfo();
+        const userInfo = await getUserInfo(mailRef.current.value, pwdRef.current.value);
         console.log(mailRef.current.value, pwdRef.current.value);
         console.log(userInfo);
         if (!userInfo) {
@@ -57,8 +57,8 @@ export default function LoginModal() {
                     <div className="modal">
                         <h1>Connexion</h1>
                         <form onSubmit={handleSubmit}>
-                            <input className={error && "invalid"} type="text" ref={mailRef} placeholder="email" required />
-                            <input className={error && "invalid"} type={showPwd ? "text" : "password"} ref={pwdRef} placeholder="password" required />
+                            <input className={error ? "invalid" : undefined} type="text" ref={mailRef} placeholder="email" required />
+                            <input className={error ? "invalid" : undefined} type={showPwd ? "text" : "password"} ref={pwdRef} placeholder="password" required />
                             <i onMouseEnter={handleShowPwd} onMouseLeave={handleShowPwd} className="fa-solid fa-eye"></i>
                             {errorMessage && <span className="error-message">{errorMessage}</span>}
                             {isLoading ? (

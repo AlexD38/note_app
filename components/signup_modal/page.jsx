@@ -15,8 +15,6 @@ export default function SignUpModal(props) {
     const userNameRef = useRef(null);
     const mailRef = useRef(null);
     const pwdRef = useRef(null);
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{6,}$/;
 
     const handleShowPwd = () => {
         setShowPwd((showPwd) => !showPwd);
@@ -55,9 +53,9 @@ export default function SignUpModal(props) {
             <div className="modal">
                 <h1>Creez un compte</h1>
                 <form onSubmit={handleSubmit}>
-                    <input className={error && "invalid"} type="text" ref={userNameRef} placeholder="Username" required />
-                    <input className={error && "invalid"} type="text" ref={mailRef} placeholder="e-mail" required />
-                    <input className={error && "invalid"} type={showPwd ? "text" : "password"} ref={pwdRef} placeholder="password" required />
+                    <input className={error ? "invalid" : undefined} type="text" ref={userNameRef} placeholder="Username" required />
+                    <input className={error ? "invalid" : undefined} type="text" ref={mailRef} placeholder="e-mail" required />
+                    <input className={error ? "invalid" : undefined} type={showPwd ? "text" : "password"} ref={pwdRef} placeholder="password" required />
                     <i onMouseEnter={handleShowPwd} onMouseLeave={handleShowPwd} className="fa-solid fa-eye sign-up-eye"></i>
                     {errorMessage && <span className="error-message">{errorMessage}</span>}
                     {isLoading ? (

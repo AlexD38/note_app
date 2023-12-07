@@ -2,17 +2,17 @@
 import { sql } from "@vercel/postgres";
 import client from "../../../database";
 
-export default async function getUserInfo() {
+export default async function getUserInfo(mail, pwd) {
     try {
-        if (typeof window === "undefined") {
-            return null;
-        }
-        // const sqlQuery = {
-        //     text: `SELECT * FROM users WHERE mail = $1 AND password = $2;`,
-        //     values: [mail, pwd],
-        // };
-        // const response = await client.query(sqlQuery);
-        const response = await sql`SELECT * FROM users;`;
+        // if (typeof window === "undefined") {
+        //     return null;
+        // }
+        const sqlQuery = {
+            text: `SELECT * FROM users WHERE mail = $1 AND password = $2;`,
+            values: [mail, pwd],
+        };
+        const response = await client.query(sqlQuery);
+        // const response = await sql`SELECT * FROM users;`;
         let user = response.rows[0];
         if (!user) {
             console.log("No user found in the database.");

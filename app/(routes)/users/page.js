@@ -1,5 +1,3 @@
-"use server";
-import { redirect } from "next/navigation";
 import { sql } from "@vercel/postgres";
 import client from "../../../database";
 
@@ -16,15 +14,18 @@ export default async function getUserInfo() {
         const response = await sql`SELECT * FROM users;`;
         let user = response.rows[0];
         if (!user) {
-            user.isConnected = "false";
+            console.log("No user found in the database.");
             return "user not connected";
-            throw new Error("Failed to fetch user information");
+            // No need to throw an error here; it's already logged.
         }
+
+        // Now you can safely access properties of the user.
         user.isConnected = "true";
         console.log(user);
         // redirect("/dashboard");
         return user;
     } catch (error) {
-        console.log(error);
+        console.error("Error fetching user information:", error);
+        // Handle the error appropriately.
     }
 }

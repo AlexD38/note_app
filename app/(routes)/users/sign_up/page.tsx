@@ -4,9 +4,9 @@ import client from "../../../../database";
 
 export default async function InsertUserInfo(userName: any, mail: any, pwd: any) {
     try {
-        if (typeof window === "undefined") {
-            return null;
-        }
+        // if (typeof window === "undefined") {
+        //     return null;
+        // }
         const sqlQuery = {
             text: `INSERT INTO users (userName, mail, password) VALUES ($1, $2, $3) RETURNING *`,
             values: [userName, mail, pwd],

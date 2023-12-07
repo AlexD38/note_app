@@ -9,9 +9,9 @@ export default async function AddFolder(folderName: any, userId: any) {
     // console.log(folderName);
 
     try {
-        if (typeof window === "undefined") {
-            return null;
-        }
+        // if (typeof window === "undefined") {
+        //     return null;
+        // }
         const sqlQuery = {
             text: `INSERT INTO folders (name, user_id) VALUES ($1, $2) RETURNING *;`,
             values: [folderName, userId],

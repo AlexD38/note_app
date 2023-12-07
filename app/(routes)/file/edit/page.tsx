@@ -4,9 +4,9 @@ import client from "../../../../database";
 
 export default async function EditFile(fileId: number, fileTitle: string, fileSlug: string, fileBody: string) {
     try {
-        if (typeof window === "undefined") {
-            return null;
-        }
+        // if (typeof window === "undefined") {
+        //     return null;
+        // }
         const sqlQuery = {
             text: `UPDATE files SET title = $2, slug = $3, body = $4 WHERE id = $1 RETURNING *;
     `,

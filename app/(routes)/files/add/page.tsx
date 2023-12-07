@@ -5,9 +5,9 @@ import client from "../../../../database";
 export default async function AddFile(fileName: string, fileSlug: string, fileBody: string) {
     try {
         // Retrieve cookies within the async context
-        // if (typeof window === "undefined") {
-        //     return null;
-        // }
+        if (typeof window === "undefined") {
+            return null;
+        }
 
         const sqlQuery = {
             text: `INSERT INTO files (title, slug, body) VALUES ($1, $2, $3) RETURNING *;`,

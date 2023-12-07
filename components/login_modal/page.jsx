@@ -27,24 +27,24 @@ export default function LoginModal() {
         setError(false);
         setIsLoading(true);
         e.preventDefault();
-        const userInfo = await getUserInfo(mailRef.current.value, pwdRef.current.value);
-        console.log(mailRef.current.value, pwdRef.current.value);
-        console.log(userInfo);
-        if (!userInfo) {
-            const error = { message: "Mauvais identifiants !" };
-            setErrorMessage(error.message);
-            setError(true);
-            setIsLoading(false);
-            return;
-        }
-        localStorage.setItem("userIsConnected", userInfo.isConnected);
-        localStorage.setItem("userId", userInfo.id);
+        const data = await fetch(`https://users?mail=${mailRef.current.value}&pwd=${pwdRef.current.value}`);
+        console.log(data);
+        // console.log(userInfo);
+        // if (!userInfo) {
+        //     const error = { message: "Mauvais identifiants !" };
+        //     setErrorMessage(error.message);
+        //     setError(true);
+        //     setIsLoading(false);
+        //     return;
+        // }
+        // localStorage.setItem("userIsConnected", userInfo.isConnected);
+        // localStorage.setItem("userId", userInfo.id);
 
-        localStorage.setItem("userName", userInfo.mail);
-        const userIsConnected = localStorage.getItem("userIsConnected");
-        if (!userIsConnected) {
-            return;
-        }
+        // localStorage.setItem("userName", userInfo.mail);
+        // const userIsConnected = localStorage.getItem("userIsConnected");
+        // if (!userIsConnected) {
+        //     return;
+        // }
         router.push("/dashboard");
     };
 

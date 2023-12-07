@@ -13,7 +13,7 @@ export default async function getUserInfo() {
         // };
         // const response = await client.query(sqlQuery);
         const response = await sql`SELECT * FROM users;`;
-        let user = response.rows;
+        let user = response.rows[0];
         if (!user) {
             console.log("No user found in the database.");
             return "user not connected";

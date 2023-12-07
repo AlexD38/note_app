@@ -27,7 +27,7 @@ export default function LoginModal() {
         setError(false);
         setIsLoading(true);
         e.preventDefault();
-        const userInfo = await getUserInfo(mailRef.current.value, pwdRef.current.value);
+        const userInfo = await getUserInfo();
         console.log(mailRef.current.value, pwdRef.current.value);
         console.log(userInfo);
         if (!userInfo) {

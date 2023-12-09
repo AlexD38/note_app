@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import "./style.css";
 
 import { useRouter } from "next/navigation";
-import getUserInfo from "@/app/(routes)/users/page";
+import { getUser } from "@/app/(routes)/users/page";
 import SignUpModal from "../signup_modal/page";
 
 export default function LoginModal() {
@@ -27,25 +27,30 @@ export default function LoginModal() {
         setError(false);
         setIsLoading(true);
         e.preventDefault();
-        const data = await fetch(`https://users?mail=${mailRef.current.value}&pwd=${pwdRef.current.value}`);
-        console.log(data);
-        // console.log(userInfo);
-        // if (!userInfo) {
-        //     const error = { message: "Mauvais identifiants !" };
-        //     setErrorMessage(error.message);
-        //     setError(true);
-        //     setIsLoading(false);
-        //     return;
-        // }
-        // localStorage.setItem("userIsConnected", userInfo.isConnected);
-        // localStorage.setItem("userId", userInfo.id);
 
-        // localStorage.setItem("userName", userInfo.mail);
-        // const userIsConnected = localStorage.getItem("userIsConnected");
-        // if (!userIsConnected) {
-        //     return;
-        // }
-        router.push("/dashboard");
+        const mail = encodeURIComponent(mailRef.current.value);
+        const pwd = encodeURIComponent(pwdRef.current.value);
+
+        try {
+            const response = await getUser(mail, pwd);
+
+            if (!response.ok) {
+                // La requête a échoué (statut non 2xx)
+                throw new Error(`Erreur de requête : ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            console.log(data);
+            // Faites quelque chose avec les données récupérées
+        } catch (error) {
+            console.error("Erreur lors de la requête :", error);
+            // Gérez l'erreur, par exemple, en mettant à jour l'état pour afficher un message d'erreur à l'utilisateur
+            setError(true);
+        } finally {
+            // Mettez à jour l'état pour indiquer que le chargement est terminé, que la requête réussisse ou échoue
+            setIsLoading(false);
+            router.push("/dashboard");
+        }
     };
 
     return (

@@ -1,9 +1,9 @@
-import SideBar from "@/components/side_bar/page";
+import SideBar from "@/app/ui/side_bar/page";
 import client from "../../../database";
 import { NextRequest } from "next/server";
 import "./style.css";
-import DeleteBtn from "@/components/Delete-file-btn/page";
-import EditFileBar from "@/components/Edit-file-bar/page";
+import DeleteBtn from "@/app/ui/Delete-file-btn/page";
+import EditFileBar from "@/app/ui/Edit-file-bar/page";
 import { marked } from "marked";
 import he from "he";
 

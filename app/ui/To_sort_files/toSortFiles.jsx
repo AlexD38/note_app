@@ -1,7 +1,7 @@
 "use client";
 import GetAllFiles from "@/app/(routes)/files/page";
 import SortOneFile from "@/app/(routes)/files/sort/page";
-import GetAllFolders from "@/app/(routes)/folders/page";
+import GetAllFolders from "@/app/(routes)/dashboard/folders/page";
 import { useEffect, useRef, useState } from "react";
 import "./style.css";
 

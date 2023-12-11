@@ -1,11 +1,11 @@
 "use client";
 import "./style.css";
 import AddFolderBtn from "../add-folder-modal/page";
-import getAllFilesFromFolder from "@/app/(routes)/folders/[id]/page";
+import getAllFilesFromFolder from "@/app/(routes)/dashboard/folders/[id]/page";
 import { useEffect, useState } from "react";
 import DeleteFile from "@/app/(routes)/file/delete/page";
 import Link from "next/link";
-import GetAllFolders from "@/app/(routes)/folders/page";
+import GetAllFolders from "@/app/(routes)/dashboard/folders/page";
 
 export default function FoldersNavbar() {
     const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;

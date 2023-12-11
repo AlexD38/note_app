@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./style.css";
+import SideBar from "../ui/side_bar/page";
+import Link from "next/link";
+import { fetchFolders } from "../lib/data";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,12 +12,27 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+    const folders = await fetchFolders();
     return (
         <html lang="en">
             <head>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />{" "}
             </head>
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                <main>
+                    <header>this is dashboard</header>
+                    <SideBar folders={folders} />
+                    <ul>
+                        <Link href="/dashboard/folders">
+                            <li>folders</li>
+                        </Link>
+                        <Link href="/dashboard/files">
+                            <li>files</li>
+                        </Link>
+                    </ul>
+                </main>
+                {children}
+            </body>
         </html>
     );
 }

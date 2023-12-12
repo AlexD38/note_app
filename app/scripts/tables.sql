@@ -1,6 +1,6 @@
 -- Active: 1699364041500@@localhost@5432@noteapp
 
-DROP TABLE IF EXISTS "folders", "files", "tags";
+DROP TABLE IF EXISTS "folders", "files", "tags", "users";
 
 CREATE TABLE
     users (

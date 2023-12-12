@@ -38,6 +38,7 @@ aside ul li, ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
 }
 .folder-list:hover {
     transition: all .3s ease-in-out;

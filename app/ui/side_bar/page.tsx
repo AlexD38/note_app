@@ -11,7 +11,7 @@ export default function SideBar(props: any) {
         <aside>
             {folders &&
                 folders.map((folder: { id: any; name: any }) => (
-                    <Link className="folder-list" key={folder.id} href={`/dashboard/folders`}>
+                    <Link className="folder-list" key={folder.id} href={`/dashboard/folders/${folder.id}`}>
                         {folder.name}
                     </Link>
                 ))}

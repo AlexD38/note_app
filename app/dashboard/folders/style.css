@@ -39,6 +39,7 @@ aside ul li, ul {
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    font-size: 2rem;
 }
 .add {
     background-color: green;

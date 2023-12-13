@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./style.css";
 import Folders from "./dashboard/folders/page";
 import { fetchFolders } from "./lib/data";
+import AddNote from "./ui/AddNoteBtn";
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "My Note App",
@@ -18,8 +19,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <head>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />{" "}
             </head>
-            <body className={inter.className}>
-                <header></header>
+            <body className={raleway.className}>
+                <header>
+                    <AddNote />
+                </header>
                 {children}
             </body>
         </html>

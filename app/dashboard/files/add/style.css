@@ -1,0 +1,28 @@
+form  {
+margin: auto 0;
+position: relative;
+
+}
+form > * {
+    display: flex;
+flex-direction: column;
+gap: 1rem;
+justify-content: center;
+align-items: flex-start;
+width : 100%;
+}
+input, textarea, select {
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 80%;
+}
+select {
+    width: 90%;
+}
+label {
+    font-size: 1.125rem;
+    color: aliceblue;
+}
+fieldset {
+    border: none;
+}

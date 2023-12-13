@@ -1,0 +1,11 @@
+.title {
+    text-transform: uppercase;
+}
+.file {
+    border : 1px solid green;
+    border-radius: 2rem;
+    padding: 2rem;
+    color: aliceblue;
+    min-width: 50rem;
+    text-align: center;
+}

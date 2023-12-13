@@ -1,0 +1,12 @@
+# note-app
+
+## main layout
+
+```
+|__app
+   |__dashboard
+      |_____folders
+      |_____[id]
+          |________files
+          |________[id]
+```

@@ -1,12 +1,10 @@
 "use client";
 import { useRef, useState } from "react";
 import "../folder_navbar/style.css";
-import AddFolder from "@/app/(routes)/dashboard/folders/add/page";
 import "../add-note-modal/style.css";
 import "./style.css";
 
 export default function AddFolderBtn(props) {
-    const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
     const [form, setForm] = useState(false);
     const folderNameRef = useRef(null);
 
@@ -15,16 +13,17 @@ export default function AddFolderBtn(props) {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("add folder : ", folderNameRef);
 
-        try {
-            await AddFolder(folderNameRef.current.value, userId);
+        // try {
+        //     await AddFolder(folderNameRef.current.value, userId);
 
-            props.folders(folderNameRef.current.value);
-            handleClick();
-        } catch (error) {
-            console.error("Error adding folder:", error);
-            alert("Failed to add the folder. Please try again.");
-        }
+        //     props.folders(folderNameRef.current.value);
+        //     handleClick();
+        // } catch (error) {
+        //     console.error("Error adding folder:", error);
+        //     alert("Failed to add the folder. Please try again.");
+        // }
     };
 
     return (

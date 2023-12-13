@@ -40,6 +40,10 @@ aside ul li, ul {
     align-items: center;
     margin-bottom: 1rem;
 }
+.add {
+    background-color: green;
+    color: aliceblue;
+}
 .folder-list:hover {
     transition: all .3s ease-in-out;
     background-color: #ffffff0f;

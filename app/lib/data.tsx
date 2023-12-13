@@ -1,13 +1,15 @@
 import { sql } from "@vercel/postgres";
+import { revalidatePath } from "next/cache";
 
 export async function fetchFolders() {
     try {
         const folders = await sql`SELECT * FROM folders`;
-        console.log(folders.rows);
+        // console.log(folders.rows);
 
         if (!folders) {
             console.log("No folders found");
         }
+        revalidatePath("/dashboard/folders");
         return folders.rows;
     } catch (err) {
         console.error("Database Error:", err);

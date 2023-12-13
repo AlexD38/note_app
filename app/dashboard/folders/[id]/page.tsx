@@ -1,5 +1,6 @@
 import { fetchFilesFromTheirFolders } from "@/app/lib/data";
 import DeleteFolder from "../delete/page";
+import Folders from "../page";
 
 export default async function Page({ params }: { params: { id: string } }) {
     const folderId = params.id;

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "@nextui-org/react": "^2.2.4",
     "@vercel/postgres": "^0.5.1",
     "dgram": "^1.0.1",

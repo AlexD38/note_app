@@ -18,7 +18,9 @@ export default async function Page() {
                     <label htmlFor="title">folder</label>
                     <select name="folder">
                         {folders?.map((folder) => (
-                            <option value={folder.id}>{folder.name}</option>
+                            <option key={folder.id} value={folder.id}>
+                                {folder.name}
+                            </option>
                         ))}
                     </select>
                 </fieldset>

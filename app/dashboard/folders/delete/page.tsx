@@ -8,7 +8,7 @@ export default async function DeleteFolder({ id }: { id: string }) {
     // console.log(folderId);
     return (
         <form action={delteFolderWithId}>
-            <button type="submit">delete</button>
+            <button type="submit">delete folder</button>
         </form>
     );
 }

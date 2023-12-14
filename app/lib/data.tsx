@@ -24,7 +24,7 @@ export async function fetchFilesFromTheirFolders(folderId: any) {
         if (!files) {
             console.log("No folders found");
         }
-        revalidatePath(`/dashboard/folders/${folderId}`);
+        revalidatePath(`/dashboard/folders/[id]`, "page");
         return files.rows;
     } catch (err) {
         console.error("Database Error:", err);

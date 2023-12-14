@@ -6,6 +6,7 @@ import "./style.css";
 export default async function Page({ params }: { params: { id: string } }) {
     const folderId = params.id;
     const files = await fetchFilesFromTheirFolders(folderId);
+    console.log(files);
 
     return (
         <>

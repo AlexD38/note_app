@@ -2,7 +2,7 @@
 import { sql } from "@vercel/postgres";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-export async function deleteFolder(id: string) {
+export async function deleteFolder() {
     try {
         console.log(id);
         await sql`DELETE FROM folders WHERE id = ${id}`;
@@ -13,7 +13,7 @@ export async function deleteFolder(id: string) {
     revalidatePath("/dashboard/folders");
     redirect("/dashboard/folders");
 }
-export async function createFolder(formData: FormData) {
+export async function createFolder() {
     const rawFormData = {
         folderName: formData.get("folderName"),
     };
@@ -27,7 +27,7 @@ export async function createFolder(formData: FormData) {
     revalidatePath("/dashboard/folders");
     redirect("/dashboard/folders");
 }
-export async function createFile(formData: FormData) {
+export async function createFile() {
     const rawFormData = {
         fileTitle: formData.get("title"),
         fileSlug: formData.get("slug"),
